@@ -90,37 +90,59 @@ html,body {
 }
 .view-pane {
   height: 100%;
+  width:100%;
   overflow-x: auto;
   overflow-y: scroll;
 }
+/* width */
+.view-pane::-webkit-scrollbar {
+  width: 8px;
+}
 
+/* Track */
+.view-pane::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.view-pane::-webkit-scrollbar-thumb {
+  background: #666;
+  width:5px;
+  border-radius: 0px;
+}
+
+/* Handle on hover */
+.view-pane::-webkit-scrollbar-thumb:hover {
+  background: #222 !important; 
+}
 .editor-pane {
   height: 100%;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .CodeMirror {
   height: calc(100% - 20px);
   padding-top: 20px;
-  padding-left: 20px;
 }
-
 .ReactCodeMirror {
   height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
+
+/*CodeMirror-hscrollbar*/
+/* Handle */
 .result {
   padding-left: 20px;
 }
-
 .result a {
   color: #3890e0;
 }
 
 .toolbar {
   height: var(--toolbarHeight);
-  background-color: #353535;
+  background-color: #222;
   border-bottom: 1px solid rgba(173, 161, 161, 0.5);
   background-clip: padding-box;
   text-align: center;
@@ -139,4 +161,78 @@ html,body {
 
 .toolbar svg:last-of-type{
     margin-right: 0;
+}
+
+
+
+.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+  position: absolute;
+  background: #222;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #222;
+  border-radius: 2px;
+}
+
+.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
+  position: absolute;
+  z-index: 6;
+  background: #222;
+}
+
+.CodeMirror-simplescroll-horizontal {
+  bottom: 0; left: 0;
+  height: 8px;
+}
+.CodeMirror-simplescroll-horizontal div {
+  bottom: 0;
+  height: 100%;
+}
+
+.CodeMirror-simplescroll-vertical {
+  right: 0; top: 0;
+  width: 200px;
+}
+.CodeMirror-simplescroll-vertical div {
+  right: 0;
+  width: 100%;
+}
+
+
+.CodeMirror-overlayscroll .CodeMirror-scrollbar-filler, .CodeMirror-overlayscroll .CodeMirror-gutter-filler {
+  display: none;
+}
+
+.CodeMirror-overlayscroll-horizontal div, .CodeMirror-overlayscroll-vertical div {
+  position: absolute;
+  background: #666;
+}
+.CodeMirror-scrollbar-filler{
+  background: #fff;
+}
+.CodeMirror-overlayscroll-filler div{
+  background: #fff
+}
+
+.CodeMirror-overlayscroll-horizontal, .CodeMirror-overlayscroll-vertical {
+  position: absolute;
+  z-index: 6;
+}
+
+.CodeMirror-overlayscroll-horizontal {
+  bottom: 0; left: 0;
+  height: 6px;
+}
+.CodeMirror-overlayscroll-horizontal div {
+  bottom: 0;
+  height: 100%;
+}
+
+.CodeMirror-overlayscroll-vertical {
+  right: 0; top: 0;
+  width: 6px;
+}
+.CodeMirror-overlayscroll-vertical div {
+  right: 0;
+  width: 100%;
 }

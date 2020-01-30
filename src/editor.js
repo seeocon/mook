@@ -2,12 +2,16 @@
 import React, { Component } from 'react';
 import CodeMirror from '@skidding/react-codemirror';
 
+import "./editor.module.css";
+
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/python/python');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
-require('codemirror/theme/monokai.css');
+require('codemirror/theme/base16-dark.css');
+require('codemirror/addon/scroll/simplescrollbars.js')
+require('./editor.module.css');
 
 class Editor extends Component {
   constructor(props) {
@@ -23,13 +27,16 @@ class Editor extends Component {
   render() {
     var options = {
       mode: 'markdown',
-      theme: 'monokai',
+      theme: 'base16-dark',
+      lineNumbers: true,
+      scrollbarStyle: "overlay"
     }
     return (
       <CodeMirror
+        lineNumbers={true}
         value={this.props.value} onChange={this.updateCode}
         options={options} height="100%"
-      />
+        />
     );
   }
 }
